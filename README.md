@@ -84,24 +84,35 @@ Environment variables are validated at import time by Zod in `src/config/env.ts`
 ```
 .
 ├── .github/workflows/   # GitHub Actions CI pipeline
-├── .husky/              # Git hooks (prepare-commit-msg, etc.)
-├── __tests__/           # Vitest tests
-├── public/              # Static assets
+├── .husky/              # Git hooks (pre-commit, commit-msg)
+├── __tests__/           # Vitest unit/component tests
+├── docs/                # Architecture & decision records (ADR)
+├── e2e/                 # End-to-end tests (Playwright)
+├── public/              # Static assets (served at root)
+│   ├── images/          #   Logos, og-image, favicon
+│   └── fonts/           #   Self-hosted fonts
+├── scripts/             # Automation (codegen, seed, tooling)
 ├── src/
 │   ├── app/             # Next.js App Router (routes, layouts, pages)
 │   │   ├── (auth)/      #   Auth route group
 │   │   ├── (dashboard)/ #   Dashboard route group
-│   │   └── (marketing)/ #   Marketing route group
+│   │   ├── (marketing)/ #   Marketing route group
+│   │   └── api/         #   Route handlers / API endpoints
 │   ├── components/
 │   │   ├── ui/          #   Primitive UI components (Radix/shadcn)
 │   │   ├── shared/      #   Reusable business components
 │   │   ├── forms/       #   Form components
-│   │   └── layout/      #   Layout components (Header, Footer, Sidebar)
+│   │   ├── layout/      #   Layout components (Header, Footer, Sidebar)
+│   │   ├── auth/        #   Auth-specific components (sign-in, sign-up)
+│   │   └── features/    #   Feature-scoped business components
 │   ├── config/          # Site + typed env configuration
 │   ├── constants/       # App-wide constants
+│   ├── data/            # Static/mock data & fixtures
 │   ├── hooks/           # Custom React hooks
+│   ├── i18n/            # Internationalization setup & messages
 │   ├── lib/             # Utilities (axios client, cn, etc.)
 │   ├── providers/       # Global providers
+│   ├── server/          # Server-only code (auth, SSR utilities)
 │   ├── services/        # API client calls
 │   ├── stores/          # Zustand stores
 │   ├── types/           # TypeScript types

@@ -19,7 +19,7 @@ npm run lint:fix     # ESLint with auto-fix
 - **Package manager**: npm. `npm ci` in CI.
 - **Env validation**: `src/config/env.ts` runs `z.object(...).parse(process.env)` at import time. If startup fails, check `.env.local` matches `.env.example`.
 - **CSS theming**: HSL variables in `globals.css`; tailwind maps via `hsl(var(--primary))`. Use `cn()` from `src/lib/utils.ts` for class merging.
-- **File structure**: `src/app/` = Next.js App Router, `src/components/` = React components (ui/layout/shared/forms), `src/services/` = API client calls, `src/stores/` = Zustand state, `src/hooks/` = custom hooks, `__tests__/` = tests.
+- **File structure**: `src/app/` = Next.js App Router (+ `src/app/api/` = route handlers), `src/components/` = React components (ui/layout/shared/forms/auth/features), `src/services/` = API client calls, `src/stores/` = Zustand state, `src/hooks/` = custom hooks, `src/server/` = server-only code, `src/data/` = static/mock data, `src/i18n/` = internationalization, `__tests__/` = unit tests, `e2e/` = end-to-end tests.
 
 ## Testing
 
